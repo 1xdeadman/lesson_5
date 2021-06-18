@@ -20,13 +20,23 @@ def test_bubble_sort():
 
 @pytest.mark.task_13
 def test_bin_search():
-    res_data = [x for x in range(100)]
-    assert 10 == task_13.bin_search(res_data, 10)
-    assert 0 == task_13.bin_search(res_data, 0)
-    assert 1 == task_13.bin_search(res_data, 1)
-    assert 99 == task_13.bin_search(res_data, 99)
-    assert 50 == task_13.bin_search(res_data, 50)
+    res_data = [x for x in range(10, 100)]
+    assert 10 == task_13.bin_search(res_data, 20)
+    assert 0 == task_13.bin_search(res_data, 10)
+    assert 1 == task_13.bin_search(res_data, 11)
+    assert 99 == task_13.bin_search(res_data, 109)
+    assert 50 == task_13.bin_search(res_data, 60)
 
+
+@pytest.mark.task_13
+def test_bin_searc_2h():
+    res_data = [1, 10, 60]
+    assert task_13.bin_search(res_data, 0) is None
+    assert task_13.bin_search(res_data, 5) is None
+    assert task_13.bin_search(res_data, 11) is None
+    assert task_13.bin_search(res_data, 30) is None
+    assert task_13.bin_search(res_data, 100) is None
+    assert task_13.bin_search(res_data, -10) is None
 
 
 

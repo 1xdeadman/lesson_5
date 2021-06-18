@@ -32,7 +32,7 @@ def bin_search(data: list[int], value: int) -> int:
 
     :param data: отсортированный список значений
     :param value: искомое значение
-    :return: индекс элемента
+    :return: индекс элемента или None если не найден элемент
     """
 
     # TODO: реализовать данную функцию.
