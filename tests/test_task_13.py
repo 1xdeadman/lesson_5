@@ -10,33 +10,59 @@ def test_find_max_word():
 
 
 @pytest.mark.task_13
-def test_bubble_sort():
-
-    res_data = [x for x in range(100)]
-    input_data = res_data.copy()
+@pytest.mark.parametrize(
+    ('data'),
+    [
+        pytest.param([x for x in range(100)]),
+        pytest.param([x for x in range(100, 300, 2)]),
+        pytest.param([x for x in range(100, 300, 3)]),
+        pytest.param([x for x in range(100, -100, -2)]),
+        pytest.param([]),
+        pytest.param([1]),
+        pytest.param([1, 1])
+    ]
+)
+def test_bubble_sort(data: list[int]):
+    input_data = data.copy()
+    data.sort()
     rnd.shuffle(input_data)
-    assert res_data == task_13.bubble_sort(input_data)
+    task_13.bubble_sort(input_data)
+    assert data == input_data
 
 
+@pytest.mark.bin_search
 @pytest.mark.task_13
-def test_bin_search():
+@pytest.mark.parametrize(
+    ('value', 'result'),
+    [
+        pytest.param(20, 10),
+        pytest.param(10, 0),
+        pytest.param(11, 1),
+        pytest.param(99, 89),
+        pytest.param(60, 50)
+    ]
+)
+def test_bin_search(value, result):
     res_data = [x for x in range(10, 100)]
-    assert 10 == task_13.bin_search(res_data, 20)
-    assert 0 == task_13.bin_search(res_data, 10)
-    assert 1 == task_13.bin_search(res_data, 11)
-    assert 99 == task_13.bin_search(res_data, 109)
-    assert 50 == task_13.bin_search(res_data, 60)
+    assert result == task_13.bin_search(res_data, value)
 
 
+@pytest.mark.bin_search
 @pytest.mark.task_13
-def test_bin_searc_2h():
+@pytest.mark.parametrize(
+    ('value',),
+    [
+        pytest.param(5),
+        pytest.param(0),
+        pytest.param(11),
+        pytest.param(30),
+        pytest.param(100),
+        pytest.param(-10)
+    ]
+)
+def test_bin_searc_wrong(value):
     res_data = [1, 10, 60]
-    assert task_13.bin_search(res_data, 0) is None
-    assert task_13.bin_search(res_data, 5) is None
-    assert task_13.bin_search(res_data, 11) is None
-    assert task_13.bin_search(res_data, 30) is None
-    assert task_13.bin_search(res_data, 100) is None
-    assert task_13.bin_search(res_data, -10) is None
+    assert task_13.bin_search(res_data, value) is None
 
 
 

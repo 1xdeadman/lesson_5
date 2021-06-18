@@ -19,7 +19,6 @@ def find_max_word(text: str) -> str:
 def bubble_sort(data: list[int]):
     """Сортирует список чисел по возрастанию.
     :param data: список чисел
-    :return:
     """
 
     # TODO: реализовать данную функцию.
@@ -27,7 +26,7 @@ def bubble_sort(data: list[int]):
     #  При реализации запрещено использовать уже реализованные функции поиска или сортировки.
 
 
-def bin_search(data: list[int], value: int) -> int:
+def bin_search(data: list[int], value: int) -> Optional[int]:
     """Поиск value в заранее отсортированном по возрастанию списке data.
 
     :param data: отсортированный список значений
